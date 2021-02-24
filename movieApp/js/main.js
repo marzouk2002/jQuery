@@ -13,7 +13,6 @@ function getMovies(Text) {
             console.log(err)
         }
         let movies =data.Search
-        console.log(movies)
         let output=''
         $.each(movies, (index, movie)=>{
             output += `
@@ -38,13 +37,11 @@ function movieSelected(id) {
 
 function getMovie() {
     let movieId = sessionStorage.getItem('movieId')
-    console.log(movieId)
     $.ajax({
         method:'GET',
         url:'http://www.omdbapi.com/?apikey=8a10e7ce&i='+movieId,
         dataType:'json'
     }).done(function(movie) {
-     console.log(movie)
         let output=`
         <div class="row">
           <div class="col-md-4">
